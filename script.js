@@ -13,15 +13,30 @@ const portfolioConfig={
 function embedUrl(url){if(!url)return"";try{const u=new URL(url),h=u.hostname.replace(/^www\./,"");if(h==="youtu.be")return`https://www.youtube-nocookie.com/embed/${u.pathname.slice(1)}`;if(h.includes("youtube.com")){const id=u.searchParams.get("v");if(id)return`https://www.youtube-nocookie.com/embed/${id}`;if(u.pathname.startsWith("/embed/"))return url;}if(h.includes("vimeo.com")){const id=u.pathname.split("/").filter(Boolean).pop();if(/^\d+$/.test(id))return`https://player.vimeo.com/video/${id}`;}if(h.includes("drive.google.com")){const m=url.match(/\/file\/d\/([^/]+)/);if(m)return`https://drive.google.com/file/d/${m[1]}/preview`;}return url;}catch{return url;}}
 function directVideo(url){return/\.(mp4|webm|ogg)(\?.*)?$/i.test(url||"");}
 function renderProjects(filter="all"){const grid=document.getElementById("project-grid"),items=portfolioConfig.projects.filter(p=>filter==="all"||p.category===filter);document.getElementById("work-count").textContent=`${String(items.length).padStart(2,"0")} PROJECTS`;grid.innerHTML=items.map((p,i)=>`<article class="project-card"><div class="project-thumb">${p.thumbnail?`<img src="${p.thumbnail}" alt="${p.title} thumbnail" loading="lazy">`:`<div class="thumb-placeholder">${p.label||"SELECTED WORK"}</div>`}<span class="project-play">▶</span></div><div class="project-info"><div class="project-meta"><span>${p.label||p.category}</span><span>${p.year||String(i+1).padStart(2,"0")}</span></div><h3>${p.title}</h3><p>${p.description}</p><div class="project-meta"><span>${p.software||""}</span></div><div class="project-actions">${p.videoUrl?`<a class="watch-project" href="${p.videoUrl}" data-video="${p.videoUrl}">Watch video ↗</a>`:`<span class="project-pending">Add video link in script.js</span>`}</div></div></article>`).join("");grid.querySelectorAll(".watch-project").forEach(a=>a.addEventListener("click",e=>{if(directVideo(a.dataset.video))return;e.preventDefault();window.open(embedUrl(a.dataset.video),"_blank","noopener");}));}
-function renderShowreel(){
-  const url=portfolioConfig.showreelUrl;
-  const players=[document.getElementById("hero-showreel-player"),document.getElementById("showreel-player")].filter(Boolean);
-  players.forEach((el,index)=>{
-    if(!url){el.innerHTML='<div class="play-mark">▶</div><strong>FEATURED SHOWREEL</strong><small>Add showreel URL in script.js</small>';return;}
-    if(directVideo(url)){
-      el.innerHTML=`<video controls playsinline preload="metadata" src="${url}"></video>`;
-    }else{
-      el.innerHTML=`<iframe src="${embedUrl(url)}" title="Stanley Ferdinand showreel${index===0?' preview':''}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+function renderShowreel() {
+  const url = portfolioConfig.showreelUrl;
+  if (!url) return;
+
+  const iframeHTML = `
+    <iframe
+      src="${embedUrl(url)}"
+      title="Stanley Ferdinand Showreel"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy">
+    </iframe>`;
+
+  const heroPlayer = document.getElementById("hero-showreel-player");
+  const lowerPlayer = document.getElementById("showreel-player");
+
+  [heroPlayer, lowerPlayer].forEach(el => {
+    if (!el) return;
+
+    if (directVideo(url)) {
+      el.innerHTML = `<video controls playsinline preload="metadata" src="${url}"></video>`;
+    } else {
+      el.innerHTML = iframeHTML;
     }
   });
 }
