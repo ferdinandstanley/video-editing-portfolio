@@ -20,7 +20,7 @@ const portfolioConfig = {
       category: "social",
       label: "PRODUCT VIDEO",
       description: "Product video for online store.",
-      software: "Premiere Pro · CapCut",
+      software: "Premiere Pro · After Effect · Adobe Animate · Adobe Illustrator",
       thumbnail: "",
       videoUrl: "https://youtu.be/JOiVjVWE7AY",
       year: "2024"
@@ -33,7 +33,7 @@ const portfolioConfig = {
       software: "DaVinci Resolve · Premiere Pro",
       thumbnail: "",
       videoUrl: "https://youtu.be/OX_HRpj2juc",
-      year: ""
+      year: "2025"
     },
     {
       title: "Brand/App Introduction",
@@ -43,7 +43,7 @@ const portfolioConfig = {
       software: "After Effects",
       thumbnail: "",
       videoUrl: "https://youtu.be/fQHFtVbIQBw",
-      year: ""
+      year: "2024"
     },
     {
       title: "Company Logo Intro",
@@ -53,7 +53,7 @@ const portfolioConfig = {
       software: "Premiere Pro · After Effects",
       thumbnail: "",
       videoUrl: "https://youtu.be/4eXlGsyaWE0",
-      year: ""
+      year: "2024"
     },
     {
       title: "Promotional Content",
