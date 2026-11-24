@@ -1,14 +1,68 @@
 /* EDIT YOUR CONTENT HERE. Replace starter entries with real projects you have permission to show. */
 const portfolioConfig={
   showreelUrl:"https://youtu.be/XoK7iCjIqeE", // YouTube, Vimeo, Google Drive preview or public MP4 URL
-  projects:[
-    {title:"Brand / Commercial Video",category:"commercial",label:"COMMERCIAL",description:"Women Of Excellence Award, Creative Director.",software:"Premiere Pro · After Effects",thumbnail:"",https://youtu.be/FfYU9p_XQwc:"",2025:""},
-    {title:"Social Media Campaign",category:"social",label:"SOCIAL MEDIA",description:"Describe the short-form content, platform and editing approach.",software:"Premiere Pro · CapCut",thumbnail:"",videoUrl:"",year:""},
-    {title:"Cinematic Storytelling",category:"storytelling",label:"STORYTELLING",description:"Describe the story, pacing, sound design and visual treatment.",software:"DaVinci Resolve · Premiere Pro",thumbnail:"",videoUrl:"",year:""},
-    {title:"Motion Graphics Project",category:"motion",label:"MOTION GRAPHICS",description:"Describe the animation, titles, transitions or visual effects you created.",software:"After Effects",thumbnail:"",videoUrl:"",year:""},
-    {title:"YouTube Video Edit",category:"youtube",label:"YOUTUBE",description:"Describe the format, your contribution and channel context.",software:"Premiere Pro · After Effects",thumbnail:"",videoUrl:"",year:""},
-    {title:"Promotional Content",category:"commercial",label:"PROMOTIONAL",description:"Describe the promotional video and the work you completed.",software:"Premiere Pro · DaVinci Resolve",thumbnail:"",videoUrl:"",year:""}
-  ]
+  projects: [
+  {
+    title: "Women Of Excellence Award",
+    category: "commercial",
+    label: "COMMERCIAL",
+    description: "Women Of Excellence Award — Creative Director.",
+    software: "Premiere Pro · After Effects",
+    thumbnail: "",
+    videoUrl: "https://youtu.be/FfYU9p_XQwc",
+    year: "2025"
+  },
+  {
+    title: "New Product Video",
+    category: "social",
+    label: "PRODUCT VIDEO",
+    description: "Product video for Online store.",
+    software: "Premiere Pro · CapCut",
+    thumbnail: "",
+    videoUrl: "https://youtu.be/JOiVjVWE7AY",
+    year: "2024"
+  },
+  {
+    title: "Real Estate Clip",
+    category: "storytelling",
+    label: "STORYTELLING",
+    description: "Real estate clip.",
+    software: "DaVinci Resolve · Premiere Pro",
+    thumbnail: "",
+    videoUrl: "https://youtu.be/OX_HRpj2juc",
+    year: ""
+  },
+  {
+    title: "Brand/App Introduction",
+    category: "motion",
+    label: "MOTION GRAPHICS",
+    description: "Tailorgang Brand Introduction.",
+    software: "After Effects",
+    thumbnail: "",
+    videoUrl: "https://youtu.be/fQHFtVbIQBw",
+    year: ""
+  },
+  {
+    title: "Company Logo Intro",
+    category: "youtube",
+    label: "YOUTUBE",
+    description: "BIOLAFLOW Logo unveiling.",
+    software: "Premiere Pro · After Effects",
+    thumbnail: "",
+    videoUrl: "https://youtu.be/4eXlGsyaWE0",
+    year: ""
+  },
+  {
+    title: "Promotional Content",
+    category: "commercial",
+    label: "PROMOTIONAL",
+    description: "9 To Thrive Summit.",
+    software: "Premiere Pro · DaVinci Resolve",
+    thumbnail: "",
+    videoUrl: "https://youtu.be/xt0iIYfN8r0",
+    year: "2024"
+  }
+]
 };
 function embedUrl(url){if(!url)return"";try{const u=new URL(url),h=u.hostname.replace(/^www\./,"");if(h==="youtu.be")return`https://www.youtube-nocookie.com/embed/${u.pathname.slice(1)}`;if(h.includes("youtube.com")){const id=u.searchParams.get("v");if(id)return`https://www.youtube-nocookie.com/embed/${id}`;if(u.pathname.startsWith("/embed/"))return url;}if(h.includes("vimeo.com")){const id=u.pathname.split("/").filter(Boolean).pop();if(/^\d+$/.test(id))return`https://player.vimeo.com/video/${id}`;}if(h.includes("drive.google.com")){const m=url.match(/\/file\/d\/([^/]+)/);if(m)return`https://drive.google.com/file/d/${m[1]}/preview`;}return url;}catch{return url;}}
 function directVideo(url){return/\.(mp4|webm|ogg)(\?.*)?$/i.test(url||"");}
