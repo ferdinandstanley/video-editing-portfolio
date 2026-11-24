@@ -2,7 +2,7 @@
 const portfolioConfig={
   showreelUrl:"https://youtu.be/XoK7iCjIqeE", // YouTube, Vimeo, Google Drive preview or public MP4 URL
   projects:[
-    {title:"Brand / Commercial Video",category:"commercial",label:"COMMERCIAL",description:"Shekelz Innovation, Creative Director.",software:"Premiere Pro · After Effects",thumbnail:"",https://youtu.be/1ONvze96Rt8:"",2022:""},
+    {title:"Brand / Commercial Video",category:"commercial",label:"COMMERCIAL",description:"Women Of Excellence Award, Creative Director.",software:"Premiere Pro · After Effects",thumbnail:"",https://youtu.be/FfYU9p_XQwc:"",2025:""},
     {title:"Social Media Campaign",category:"social",label:"SOCIAL MEDIA",description:"Describe the short-form content, platform and editing approach.",software:"Premiere Pro · CapCut",thumbnail:"",videoUrl:"",year:""},
     {title:"Cinematic Storytelling",category:"storytelling",label:"STORYTELLING",description:"Describe the story, pacing, sound design and visual treatment.",software:"DaVinci Resolve · Premiere Pro",thumbnail:"",videoUrl:"",year:""},
     {title:"Motion Graphics Project",category:"motion",label:"MOTION GRAPHICS",description:"Describe the animation, titles, transitions or visual effects you created.",software:"After Effects",thumbnail:"",videoUrl:"",year:""},
